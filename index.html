@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Flaurent EBA Portfolio</title>
+<meta name="description" content="Portfolio of Flaurent EBA, final-year ESTACA launcher engineering student seeking a 6-month internship from 1 February 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout concept: a launch-day story. A deep-blue opening with the portrait and the internship offer,
+   warm light sections for the evidence, a dark band for the analog missions.
+   Palette: night blue ink, warm white paper, one flame-orange accent, a clear blue for secondary marks. */
+:root {
+  --bg: #FBFAF6;
+  --surface: #FFFFFF;
+  --surface-2: #F2EFE7;
+  --ink: #0C1B3A;
+  --muted: #55627B;
+  --line: #E2DDD1;
+  --accent: #E8590C;
+  --accent-ink: #FFFFFF;
+  --accent-text: #C2410C;
+  --blue: #1D4ED8;
+  --ok: #15803D;
+  --font-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0A1428; --surface: #101F3B; --surface-2: #0D1A33; --ink: #EEF2FA; --muted: #A2B2CE;
+    --line: #223A64; --accent: #FF8A3D; --accent-ink: #0A1428; --accent-text: #FFA15F; --blue: #8EAEFF; --ok: #4ADE80;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0A1428; --surface: #101F3B; --surface-2: #0D1A33; --ink: #EEF2FA; --muted: #A2B2CE;
+  --line: #223A64; --accent: #FF8A3D; --accent-ink: #0A1428; --accent-text: #FFA15F; --blue: #8EAEFF; --ok: #4ADE80;
+  color-scheme: dark;
+}
+/* Dark zones keep the same look in both themes by redefining the tokens locally */
+.zone {
+  --bg: #07142E; --surface: #0E2147; --surface-2: #122A58; --ink: #F3F6FC; --muted: #B2C0DA;
+  --line: #2A4577; --accent: #FF8A3D; --accent-ink: #07142E; --accent-text: #FFA15F; --blue: #9DB9FF; --ok: #4ADE80;
+  background: linear-gradient(160deg, #06122A 0%, #0B2250 60%, #0F2F6B 100%); color: var(--ink);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+body { background: var(--bg); color: var(--ink); font: 400 1rem/1.6 var(--font-body); -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: #06122A; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.label { font: 500 0.75rem/1.3 var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 800; line-height: 0.98; letter-spacing: 0.005em; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); text-transform: uppercase; overflow-wrap: anywhere; }
+h3 { font-size: 1.6rem; font-weight: 600; line-height: 1.1; }
+p { margin: 0; text-wrap: pretty; }
+
+/* header */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: #06122A; color: #F3F6FC; border-bottom: 1px solid #1E3763; }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 3.5rem; }
+.brand { font: 800 1.35rem/1 var(--font-display); letter-spacing: 0.04em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
+.brand b { color: #FF8A3D; font-weight: 800; }
+.nav { display: flex; gap: 0.25rem 1.1rem; flex-wrap: wrap; justify-content: flex-end; }
+.nav a { font: 500 0.78rem/1 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: #B2C0DA; padding: 0.5rem 0; }
+.nav a:hover { color: #FF8A3D; }
+@media (max-width: 900px) { .nav { display: none; } }
+
+/* hero */
+.hero { padding-block: clamp(2rem, 5vw, 3.75rem) 0; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr); gap: clamp(1.5rem, 5vw, 3.5rem); align-items: center; }
+.school { display: inline-flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; }
+.chipwhite { background: #fff; padding: 0.45rem 0.7rem; border-radius: 4px; display: inline-flex; align-items: center; }
+.chipwhite img { height: 2.2rem; width: auto; max-width: 11rem; object-fit: contain; }
+.hero h1 { font-size: clamp(2.5rem, 7.4vw, 5.6rem); text-transform: uppercase; white-space: nowrap; margin-block: 1.1rem 0.9rem; }
+.hero h1 span { color: var(--accent); }
+.hero .lede { font-size: clamp(1.15rem, 2.2vw, 1.5rem); line-height: 1.4; font-weight: 500; max-width: 36ch; }
+.hero .pitch { margin-top: 1rem; color: var(--muted); max-width: 58ch; }
+.avail { margin-top: 1.6rem; display: grid; gap: 0.35rem; padding: 1rem 1.2rem; background: #fff; color: #0C1B3A; border-left: 5px solid var(--accent); max-width: 36rem; border-radius: 0 6px 6px 0; }
+.avail .label { color: #55627B; }
+.avail .dot { display: inline-block; width: 0.6rem; height: 0.6rem; border-radius: 50%; background: #16A34A; margin-right: 0.5rem; box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.22); }
+.avail strong { font: 600 1.15rem/1.3 var(--font-body); }
+.avail .mono { font: 400 0.84rem/1.4 var(--font-mono); color: #55627B; }
+.cta { margin-top: 1.4rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.btn { display: inline-block; font: 500 0.82rem/1 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding: 0.95rem 1.2rem; border: 1px solid currentColor; border-radius: 4px; }
+.btn.solid { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 500; }
+.btn.solid:hover { filter: brightness(1.08); }
+.btn.ghost:hover { background: rgba(255, 255, 255, 0.1); }
+.portrait { margin: 0; position: relative; justify-self: end; width: min(100%, 24rem); }
+.portrait img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 15%; border-radius: 6px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35); }
+.portrait::before { content: ""; position: absolute; inset: 14px -14px -14px 14px; border: 2px solid var(--accent); border-radius: 6px; z-index: -1; }
+.strip { margin-top: clamp(2.25rem, 5vw, 3.5rem); border-top: 1px solid var(--line); padding-block: 1.4rem 1.6rem; }
+.strip .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.5rem; }
+.strip .chipwhite img { height: 1.9rem; }
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+  .portrait { justify-self: start; width: min(78%, 17rem); order: -1; margin-right: 14px; }
+}
+
+/* sections */
+section { padding-block: clamp(2.75rem, 6vw, 4.75rem); }
+section.alt { background: var(--surface-2); }
+.head { display: grid; grid-template-columns: minmax(0, 0.62fr) minmax(0, 1fr); gap: 1rem 2rem; margin-bottom: 2.25rem; align-items: end; }
+.head p.sub { color: var(--muted); max-width: 60ch; }
+@media (max-width: 820px) { .head { grid-template-columns: minmax(0, 1fr); } }
+
+/* target */
+.funnel { display: grid; gap: 0.6rem; max-width: 52rem; }
+.tier { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; padding: 1rem 1.15rem; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; }
+.tier:nth-child(2) { margin-left: clamp(0.75rem, 4vw, 3rem); }
+.tier:nth-child(3) { margin-left: clamp(1.5rem, 8vw, 6rem); border-color: var(--accent); border-width: 2px; }
+.tier .label { min-width: 7.5rem; }
+.tier strong { font: 600 1.3rem/1.2 var(--font-display); letter-spacing: 0.02em; text-transform: uppercase; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chip { font: 500 0.8rem/1 var(--font-mono); padding: 0.55rem 0.75rem; border: 1px solid var(--line); background: var(--surface-2); border-radius: 4px; }
+.chip.hot { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); margin-top: 2rem; background: var(--surface); border: 1px solid var(--line); border-right: 0; border-bottom: 0; border-radius: 6px; overflow: hidden; }
+.facts div { padding: 1rem 1.15rem; display: grid; gap: 0.3rem; box-shadow: inset -1px -1px 0 var(--line); }
+.facts b { font: 600 1.05rem/1.3 var(--font-body); }
+
+/* skills */
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: 1.25rem; }
+.skill { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 6px; padding: 1.35rem; display: grid; gap: 0.9rem; align-content: start; min-width: 0; }
+.skill ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.45rem; }
+.skill li { padding-left: 1.1rem; position: relative; font-size: 0.95rem; }
+.skill li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 0.45rem; height: 2px; background: var(--accent); }
+.skill .proof { border-top: 1px dashed var(--line); padding-top: 0.75rem; margin-top: auto; }
+.toolbar { margin-top: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1.25rem; }
+.toolbar > div { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1.25rem; display: grid; gap: 0.8rem; align-content: start; min-width: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; align-content: flex-start; align-items: flex-start; }
+.tag { font: 400 0.78rem/1 var(--font-mono); padding: 0.45rem 0.6rem; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink); border-radius: 4px; }
+.tag.lvl b { color: var(--accent-text); font-weight: 500; margin-left: 0.35rem; }
+
+/* experience rows */
+.xp { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 1rem clamp(1.5rem, 4vw, 3.5rem); padding-block: 2.25rem; border-top: 1px solid var(--line); }
+.xp:first-of-type { border-top: 0; padding-top: 0; }
+.meta { display: grid; gap: 0.5rem; align-content: start; }
+.logo-chip { background: #fff; padding: 0.4rem 0.6rem; border: 1px solid var(--line); border-radius: 4px; width: fit-content; }
+.logo-chip img { height: 3rem; width: auto; max-width: 12rem; object-fit: contain; }
+.meta .when { font: 500 0.85rem/1.4 var(--font-mono); color: var(--accent-text); }
+.meta .where { color: var(--muted); font-size: 0.9rem; }
+.body { display: grid; gap: 1rem; min-width: 0; }
+.body ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.55rem; }
+.body li { padding-left: 1.25rem; position: relative; }
+.body li::before { content: ""; position: absolute; left: 0; top: 0.7em; width: 0.6rem; height: 2px; background: var(--accent); }
+.now { display: inline-block; font: 500 0.72rem/1 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; background: var(--accent); color: var(--accent-ink); padding: 0.35rem 0.55rem; width: fit-content; border-radius: 3px; }
+@media (max-width: 820px) { .xp { grid-template-columns: minmax(0, 1fr); } }
+.readout { display: grid; grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr)); background: var(--surface); border: 1px solid var(--line); border-right: 0; border-bottom: 0; border-radius: 6px; overflow: hidden; }
+.readout div { padding: 0.9rem 1rem; display: grid; gap: 0.25rem; align-content: start; box-shadow: inset -1px -1px 0 var(--line); }
+.readout b { font: 800 2.1rem/1 var(--font-display); letter-spacing: 0.01em; color: var(--ink); }
+.readout b small { font: 500 0.8rem/1 var(--font-mono); color: var(--muted); margin-left: 0.2rem; }
+.readout span { font-size: 0.82rem; color: var(--muted); line-height: 1.35; }
+.shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 0.9rem; }
+figure { margin: 0; min-width: 0; }
+figure img { width: 100%; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+figcaption { margin-top: 0.45rem; font-size: 0.82rem; color: var(--muted); line-height: 1.4; }
+.shots.tall { grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr)); }
+.shots.one { grid-template-columns: minmax(0, 19rem); }
+.shots.land.one { grid-template-columns: minmax(0, 26rem); }
+.shots.tall img { aspect-ratio: 3 / 4; object-fit: cover; }
+.shots.land img { aspect-ratio: 4 / 3; object-fit: cover; }
+.cad { background: #fff; padding: 1.2rem; border: 1px solid var(--line); border-radius: 6px; max-width: 34rem; }
+.cad img { border: 0; background: transparent; width: 100%; }
+
+/* analog missions */
+.msn { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 1rem clamp(1.5rem, 4vw, 3.5rem); padding-block: 2.5rem; border-top: 1px solid var(--line); }
+.msn:first-of-type { border-top: 0; padding-top: 0; }
+.msn .num { font: 800 5rem/0.85 var(--font-display); color: var(--accent); }
+@media (max-width: 820px) { .msn { grid-template-columns: minmax(0, 1fr); } .msn .num { font-size: 3.4rem; } }
+.crew { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1.25rem; margin-top: 1rem; }
+.crew > div { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1.25rem; display: grid; gap: 0.8rem; align-content: start; min-width: 0; }
+.intro { display: grid; gap: 1rem; max-width: 62ch; }
+
+/* beyond work */
+.beyond { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; }
+.beyond .stack { display: grid; gap: 1.1rem; min-width: 0; }
+@media (max-width: 820px) { .beyond { grid-template-columns: minmax(0, 1fr); } }
+.loves { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 0.6rem; }
+.loves span { font: 600 1.15rem/1.1 var(--font-display); text-transform: uppercase; letter-spacing: 0.03em; padding: 0.9rem 1rem; background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 4px; }
+
+/* research */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); gap: 1.25rem; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1.4rem; display: grid; gap: 0.8rem; align-content: start; min-width: 0; }
+
+/* education */
+.level { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 1rem clamp(1.5rem, 4vw, 3.5rem); padding-block: 1.9rem; border-top: 1px solid var(--line); }
+.level:first-child { border-top: 0; padding-top: 0; }
+.years { display: grid; margin-top: 0.4rem; }
+.year { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 0.75rem; align-items: baseline; padding: 0.7rem 0; border-top: 1px dashed var(--line); }
+.year .label { color: var(--accent-text); }
+@media (max-width: 820px) { .level { grid-template-columns: minmax(0, 1fr); } }
+
+/* contact */
+.big { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; line-height: 0.95; font-size: clamp(2.6rem, 8vw, 5.6rem); max-width: 14ch; text-wrap: balance; }
+.big span { color: var(--accent); }
+.contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 0.9rem; margin-top: 2rem; }
+.contact a { display: grid; gap: 0.3rem; padding: 1.1rem 1.2rem; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; text-decoration: none; min-width: 0; }
+.contact a:hover { border-color: var(--accent); }
+.contact b { font: 500 0.98rem/1.4 var(--font-mono); overflow-wrap: anywhere; }
+footer { background: #06122A; color: #B2C0DA; padding-block: 1.4rem; font: 400 0.8rem/1.4 var(--font-mono); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; }
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Flaurent <b>EBA</b></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#target">Internship</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#analog">Analog astronaut</a>
+      <a href="#beyond">Beyond work</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<div class="hero zone">
+  <div class="wrap">
+    <div>
+      <span class="school">
+        <span class="chipwhite"><img src="img/estaca.png" alt="ESTACA engineering school" width="600" height="247"></span>
+        <span class="label">Space department · Final-year engineering student</span>
+      </span>
+      <h1>Flaurent <span>EBA</span></h1>
+      <p class="lede">Launch vehicle engineering student. I size, simulate and test space systems, from a rocket stage to a satellite's sky coverage.</p>
+      <p class="pitch">I have worked on a semi-reusable launcher concept with an ArianeGroup engineer, on the mission architecture of a space telescope at Observatoire de Paris, and on Higgs boson data at CERN. I also train as an analog astronaut: three missions so far, in Poland, Cologne and Dubai.</p>
+      <div class="avail" role="note">
+        <span class="label">Currently seeking</span>
+        <strong><span class="dot" aria-hidden="true"></span>6-month end-of-studies internship from 1 February 2027</strong>
+        <span class="mono">Space sector › launchers › sizing &amp; architecture / design, or propulsion</span>
+      </div>
+      <div class="cta">
+        <a class="btn solid" href="#contact">Get in touch</a>
+        <a class="btn ghost" href="#experience">See my work</a>
+      </div>
+    </div>
+    <figure class="portrait">
+      <img src="img/portrait.jpg" alt="Portrait of Flaurent EBA in a navy suit and black tie" width="800" height="1200">
+    </figure>
+  </div>
+  <div class="strip">
+    <div class="wrap">
+      <span class="label">Worked with</span>
+      <span class="chipwhite"><img src="img/cern.png" alt="CERN" width="300" height="300"></span>
+      <span class="chipwhite"><img src="img/observatoire.png" alt="Observatoire de Paris – PSL" width="700" height="140"></span>
+      <span class="chipwhite"><img src="img/aatc.png" alt="AATC Space" width="700" height="233"></span>
+      <span class="label">and ArianeGroup engineers on two ESTACA projects</span>
+    </div>
+  </div>
+</div>
+
+<!-- TARGET -->
+<section id="target">
+  <div class="wrap">
+    <div class="head">
+      <h2>The internship I'm looking for</h2>
+      <p class="sub">I know where I want to go: launchers. Within that field I want to work on the design decisions that set a vehicle's size, shape and performance.</p>
+    </div>
+    <div class="funnel">
+      <div class="tier"><span class="label">Sector</span><strong>Space</strong></div>
+      <div class="tier"><span class="label">Domain</span><strong>Launch vehicles</strong></div>
+      <div class="tier">
+        <span class="label">Missions I want</span>
+        <div class="chips">
+          <span class="chip hot">Sizing &amp; architecture</span>
+          <span class="chip hot">Design</span>
+          <span class="chip hot">Propulsion systems</span>
+        </div>
+      </div>
+    </div>
+    <div class="facts">
+      <div><span class="label">Duration</span><b>6 months</b></div>
+      <div><span class="label">Start date</span><b>1 February 2027</b></div>
+      <div><span class="label">Level</span><b>5th-year engineering student, ESTACA</b></div>
+      <div><span class="label">Specialisation</span><b>Space · launchers</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="alt">
+  <div class="wrap">
+    <div class="head">
+      <h2>What I can do</h2>
+      <p class="sub">Each skill below was used on a real project. The line at the bottom of each block says where.</p>
+    </div>
+    <div class="skills">
+      <article class="skill">
+        <h3>Launcher architecture &amp; sizing</h3>
+        <ul>
+          <li>Preliminary design of multi-stage launchers, including a reusable first stage</li>
+          <li>Mass budgets and structural dimensioning</li>
+          <li>Landing-leg analysis for a recoverable stage</li>
+          <li>Propellant and stage trade-offs: LOX/CH4, LOX/LH2, solid</li>
+          <li>Launcher aerodynamics and hypersonic flow (coursework)</li>
+        </ul>
+        <p class="proof label">Used in NEL · reusable upper-stage project</p>
+      </article>
+      <article class="skill">
+        <h3>Mission analysis &amp; orbital mechanics</h3>
+        <ul>
+          <li>Sun-synchronous orbit selection, β-angle and eclipse analysis</li>
+          <li>SGP4 propagation with JPL DE421 ephemerides</li>
+          <li>Scan strategy, exclusion masks, sky coverage and duty cycle</li>
+          <li>Ground-segment visibility and contact-time budgets</li>
+          <li>Launcher trade study and carbon footprint of a mission</li>
+        </ul>
+        <p class="proof label">Used in MESSIER at Observatoire de Paris</p>
+      </article>
+      <article class="skill">
+        <h3>CAD &amp; 3D visualisation</h3>
+        <ul>
+          <li>CATIA 3DEXPERIENCE and SolidWorks part and assembly modelling</li>
+          <li>SolidWorks scripted through its API</li>
+          <li>Blender with Python scripting and the EEVEE renderer</li>
+          <li>Animated validation of orbit geometry and sky coverage</li>
+        </ul>
+        <p class="proof label">Used in NEL · MESSIER</p>
+      </article>
+      <article class="skill">
+        <h3>Simulation &amp; scientific computing</h3>
+        <ul>
+          <li>Python: NumPy, SciPy, Astropy, Skyfield, Matplotlib</li>
+          <li>MATLAB for orbit, attitude and test-data calculations</li>
+          <li>Memory-efficient processing of large time series (chunking, float32)</li>
+          <li>HEALPix sky pixelisation and exposure mapping</li>
+          <li>Linux, command line and cross-platform scripts</li>
+        </ul>
+        <p class="proof label">Used in MESSIER · CERN · AATC reports</p>
+      </article>
+      <article class="skill">
+        <h3>Data analysis &amp; physics</h3>
+        <ul>
+          <li>Analysis of proton–proton collision data at the LHC</li>
+          <li>Automation of data-processing for large experimental datasets</li>
+          <li>Least squares, covariance propagation, DOP, Kalman filtering</li>
+          <li>Physical modelling and simulation</li>
+        </ul>
+        <p class="proof label">Used in CERN · TIPE (CPGE)</p>
+      </article>
+      <article class="skill">
+        <h3>Technical documentation</h3>
+        <ul>
+          <li>Advanced LaTeX: reports, equations, figures, bibliographies with linked references</li>
+          <li>Word, Excel and PowerPoint for project reports and defence decks</li>
+          <li>Scientific writing that keeps text, figures and code consistent</li>
+          <li>Planning with milestones and Gantt charts</li>
+        </ul>
+        <p class="proof label">Used in MESSIER · NEL · AATC</p>
+      </article>
+      <article class="skill">
+        <h3>Space engineering foundations</h3>
+        <ul>
+          <li>Rocket propulsion and staging: thrust, specific impulse, delta-v budgets</li>
+          <li>Systems approach: requirements, functional and physical architecture, trade-offs</li>
+          <li>Re-entry, thermal and structural basics</li>
+          <li>Space mechanics and flight dynamics</li>
+          <li>Hands-on electronics and prototyping in the ESTACA workshop</li>
+        </ul>
+        <p class="proof label">ESTACA space curriculum · project work</p>
+      </article>
+      <article class="skill">
+        <h3>Teamwork &amp; international missions</h3>
+        <ul>
+          <li>Team spirit and adaptation to crew mates from other countries</li>
+          <li>Clear communication under stress and in confined spaces</li>
+          <li>Discipline with procedures, safety rules and mission timelines</li>
+          <li>Taking initiative, and following a plan when roles are assigned</li>
+          <li>Presenting to astrophysicists, orbital analysts and developers</li>
+        </ul>
+        <p class="proof label">Used in AATC missions · football · NEL</p>
+      </article>
+    </div>
+
+    <div class="toolbar">
+      <div>
+        <span class="label">Tools</span>
+        <div class="tags">
+          <span class="tag">CATIA 3DEXPERIENCE</span><span class="tag">SolidWorks</span><span class="tag">Python</span><span class="tag">MATLAB</span>
+          <span class="tag">LaTeX</span><span class="tag">Linux</span><span class="tag">Blender</span><span class="tag">NumPy / SciPy</span>
+          <span class="tag">Astropy</span><span class="tag">Skyfield</span><span class="tag">HEALPix</span><span class="tag">Matplotlib</span><span class="tag">Word · Excel · PowerPoint</span>
+        </div>
+      </div>
+      <div>
+        <span class="label">Languages</span>
+        <div class="tags">
+          <span class="tag lvl">French<b>native</b></span>
+          <span class="tag lvl">English<b>B2</b></span>
+          <span class="tag lvl">Spanish<b>A2</b></span>
+          <span class="tag lvl">Italian<b>A2</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="head">
+      <h2>Experience</h2>
+      <p class="sub">Two internships and two launcher projects, from newest to oldest.</p>
+    </div>
+
+    <!-- 5th year project -->
+    <article class="xp">
+      <div class="meta">
+        <span class="now">Starting soon</span>
+        <div class="logo-chip"><img src="img/estaca.png" alt="ESTACA" width="600" height="247"></div>
+        <span class="when">5th year · 2026/27</span>
+        <span class="where">ESTACA annual project<br>For ArianeGroup, supervised by an ArianeGroup engineer</span>
+      </div>
+      <div class="body">
+        <h3>Reusable upper stage: conceptual design and viability study</h3>
+        <p>ArianeGroup is studying reusable upper-stage concepts for a future fully reusable European launcher. My project takes one of the most promising concepts, a design from the late 1960s in the United States, and adapts it to a European use case. The goal is to judge its technical and economic viability.</p>
+        <span class="label">Planned work</span>
+        <ul>
+          <li>Literature review and high-level performance reconstruction of the historical concept.</li>
+          <li>Critical analysis, then high-level requirements for a European need.</li>
+          <li>Operational, functional and physical architecture.</li>
+          <li>Trade-offs and preliminary design, with CAD and internal layout.</li>
+          <li>Characterisation of atmospheric re-entry, with CFD support from the tutor.</li>
+          <li>Viability analysis, conclusions and perspectives, planned on a Gantt chart.</li>
+        </ul>
+        <div class="tags"><span class="tag">Reusability</span><span class="tag">Upper stage</span><span class="tag">Systems architecture</span><span class="tag">Trade-off study</span><span class="tag">Re-entry</span><span class="tag">CAD</span></div>
+      </div>
+    </article>
+
+    <!-- MESSIER -->
+    <article class="xp">
+      <div class="meta">
+        <div class="logo-chip"><img src="img/observatoire.png" alt="Observatoire de Paris – PSL" width="700" height="140"></div>
+        <span class="when">4th-year internship · 2025/26</span>
+        <span class="where">LUX, Observatoire de Paris (CNRS, PSL)<br>Paris, France<br>Supervisor: Dr. David Valls-Gabaud, CNRS</span>
+      </div>
+      <div class="body">
+        <h3>Assistant engineer: mission architecture of the MESSIER space telescope</h3>
+        <p>MESSIER is a satellite concept that maps the sky in ultraviolet and optical light at extremely low surface brightness, down to 37 mag/arcsec². I built the numerical chain that tests whether its orbit, scan strategy and ground segment can cover the whole sky.</p>
+        <div class="readout">
+          <div><b>91.7<small>%</small></b><span>of the observable sky covered in six months</span></div>
+          <div><b>77.7<small>%</small></b><span>useful observing time after exclusion masks</span></div>
+          <div><b>1,400<small>km</small></b><span>reference sun-synchronous orbit, i ≈ 100.42°</span></div>
+          <div><b>56–88<small>°</small></b><span>β angle, always above the 55.1° eclipse limit</span></div>
+          <div><b>8.5<small>min</small></b><span>average contact per pass over five ground stations</span></div>
+        </div>
+        <ul>
+          <li>Built a Python pipeline combining SGP4 propagation, JPL DE421 ephemerides, Skyfield and Astropy, and simulated 181 days of flight.</li>
+          <li>Fixed a critical memory bottleneck by chunking the computation and casting to float32.</li>
+          <li>Applied a WISE-inspired scan strategy with South Atlantic Anomaly and lunar exclusion masks, and found two numerical artefacts in the coverage maps, which led to the recommendation of HEALPix pixelisation for Phase A.</li>
+          <li>Sized the ground segment over five stations (Kiruna, Redu, Maspalomas, CONAE, Perth) at 5° and 10° elevation masks.</li>
+          <li>Wrote Blender scripts that animate the satellite and reveal the sky as it is observed.</li>
+          <li>Estimated the mission's carbon footprint across European launchers (launch accounts for 87–95%) and showed that the 1,400 km altitude limits optical contamination from mega-constellations.</li>
+          <li>Presented intermediate results to researchers, including colleagues from UCLA and UC Santa Cruz.</li>
+        </ul>
+        <div class="tags"><span class="tag">Python</span><span class="tag">SGP4</span><span class="tag">JPL DE421</span><span class="tag">Skyfield</span><span class="tag">Astropy</span><span class="tag">HEALPix</span><span class="tag">Blender</span><span class="tag">Linux</span><span class="tag">LaTeX</span></div>
+        <div class="shots">
+          <figure><img src="img/messier-render.jpg" alt="Blender render of the MESSIER satellite in orbit above Earth with the sky survey behind it" width="1270" height="657"><figcaption>Blender render of the satellite and the sky survey</figcaption></figure>
+          <figure><img src="img/messier-coverage.jpg" alt="Mollweide sky map showing six months of scanning coverage" width="1000" height="473"><figcaption>Six-month sky coverage on a Mollweide map</figcaption></figure>
+          <figure><img src="img/messier-ground.jpg" alt="World map with 14 days of ground track and visibility circles for five ground stations" width="1000" height="498"><figcaption>Fourteen-day ground track and station visibility</figcaption></figure>
+        </div>
+      </div>
+    </article>
+
+    <!-- NEL -->
+    <article class="xp">
+      <div class="meta">
+        <div class="logo-chip"><img src="img/estaca.png" alt="ESTACA" width="600" height="247"></div>
+        <span class="when">4th year · 2025/26</span>
+        <span class="where">ESTACA annual project<br>Supervised by an ArianeGroup engineer<br>Team of four</span>
+      </div>
+      <div class="body">
+        <h3>NEL: New European Launcher</h3>
+        <p>We designed a preliminary concept for a semi-reusable three-stage launcher aimed at a 6-tonne payload to a 400 km low Earth or sun-synchronous orbit.</p>
+        <div class="readout">
+          <div><b>3<small>stages</small></b><span>LOX/CH4 recoverable first stage, solid second stage, LOX/LH2 third stage</span></div>
+          <div><b>6<small>t</small></b><span>payload to LEO / SSO</span></div>
+          <div><b>400<small>km</small></b><span>target orbit altitude</span></div>
+        </div>
+        <ul>
+          <li>Corrected and consolidated the vehicle mass budget.</li>
+          <li>Carried out structural dimensioning and the landing-leg analysis of the recoverable stage.</li>
+          <li>Calculated and simulated the design in code and modelled the launcher in SolidWorks and CATIA 3DEXPERIENCE.</li>
+          <li>Studied the effect of a hypothetical launch-site change from Kourou to Andøya.</li>
+          <li>Led the second-semester documentation: the full technical report and a 25-slide deck.</li>
+        </ul>
+        <div class="tags"><span class="tag">Mass budget</span><span class="tag">Structures</span><span class="tag">Recoverable stage</span><span class="tag">SolidWorks</span><span class="tag">CATIA 3DEXPERIENCE</span><span class="tag">Python</span></div>
+        <figure>
+          <div class="cad"><img src="img/nel-solidworks.png" alt="SolidWorks drawing of the NEL launcher, external view above and cross-section below" width="910" height="446"></div>
+          <figcaption>SolidWorks model of the NEL launcher: external view and cross-section</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <!-- CERN -->
+    <article class="xp">
+      <div class="meta">
+        <div class="logo-chip"><img src="img/cern.png" alt="CERN" width="300" height="300"></div>
+        <span class="when">Sept 2024 – Feb 2025 · 6 months</span>
+        <span class="where">CERN<br>Geneva, Switzerland · on site<br>3rd-year internship</span>
+      </div>
+      <div class="body">
+        <h3>Particle physics research intern: Higgs boson research project</h3>
+        <p>Six months inside an international research environment, working with physicists and engineers around the Large Hadron Collider.</p>
+        <ul>
+          <li>Helped analyse proton–proton collision data for studies of Higgs boson production and decay channels.</li>
+          <li>Contributed to data-processing and automation tools for large experimental datasets.</li>
+          <li>Supported studies of the Standard Model and searches for new physics.</li>
+        </ul>
+        <div class="tags"><span class="tag">Complex experimental data</span><span class="tag">Physical modelling</span><span class="tag">Simulation</span><span class="tag">Automation</span><span class="tag">International team</span></div>
+        <figure style="max-width: 30rem;"><img src="img/cern-photo.jpg" alt="Flaurent EBA wearing a blue CERN polo and a hard hat inside an LHC detector cavern" width="800" height="788"><figcaption>Inside a detector cavern at CERN</figcaption></figure>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ANALOG ASTRONAUT -->
+<section id="analog" class="zone">
+  <div class="wrap">
+    <div class="head">
+      <h2>Analog astronaut</h2>
+      <p class="sub">Three missions, three places, one thread: doing real science and real operations in a small international crew.</p>
+    </div>
+
+    <!-- Mission 1 -->
+    <article class="msn">
+      <div class="meta">
+        <span class="num">1</span>
+        <div class="logo-chip"><img src="img/aatc.png" alt="AATC Space, Analog Astronaut Training Center" width="700" height="233"></div>
+        <span class="when">Poland · May 2026</span>
+        <span class="where">Analog Astronaut Training Center<br>LUNA AM 107 / Space Ready 2<br>Crew from France, Poland and Ukraine</span>
+      </div>
+      <div class="body">
+        <h3>Regolith science in a habitat</h3>
+        <p>I represented France in a multi-day analog mission. My science programme was a ten-experiment study of a lunar regolith simulant, and I completed three of the ten experiments on site.</p>
+        <div class="readout">
+          <div><b>3<small>of 10</small></b><span>regolith experiments completed on site</span></div>
+          <div><b>1.250<small>g/cm³</small></b><span>initial density of the simulant</span></div>
+          <div><b>1.693<small>g/cm³</small></b><span>density under a 1,000 g load</span></div>
+        </div>
+        <ul>
+          <li>The compaction values match basaltic-pond regoliths from Luna 16 and Apollo 11, 12, 15 and 17.</li>
+          <li>I placed the simulant against real lunar sample data using the principal-component study of Katzer et al. (2024).</li>
+          <li>I wrote the full scientific report and protocols for the further tests: compressive strength, friction, angle of repose and abrasion on EVA textiles.</li>
+        </ul>
+        <div class="shots tall">
+          <figure><img src="img/training1.jpg" alt="Flaurent in a red analog spacesuit holding a helmet in front of a lunar map" width="900" height="1200"><figcaption>Analog astronaut training, mission 1</figcaption></figure>
+          <figure><img src="img/aatc-door.jpg" alt="Flaurent in a navy coverall pointing at the Analog Astronaut Training Center sign" width="800" height="1067"><figcaption>Entrance of the training center</figcaption></figure>
+          <figure><img src="img/kit.jpg" alt="Experiment table with a scale, caliper, measuring cups, a petri dish, masks and gloves" width="700" height="933"><figcaption>Measurement kit: scale, caliper, cups and protective gear</figcaption></figure>
+          <figure><img src="img/regolith-bag.jpg" alt="Bag of regolith simulant labelled with a handwritten safety warning" width="700" height="933"><figcaption>Simulant bag, marked "Mask only!"</figcaption></figure>
+        </div>
+        <div class="shots land one">
+          <figure><img src="img/regolith.jpg" alt="Close-up of grey regolith simulant powder in a white bag" width="900" height="675"><figcaption>Lunar regolith simulant</figcaption></figure>
+        </div>
+      </div>
+    </article>
+
+    <!-- Mission 2 -->
+    <article class="msn">
+      <div class="meta">
+        <span class="num">2</span>
+        <span class="when">ESA LUNA · Cologne, Germany</span>
+        <span class="where">ESA–DLR lunar analogue facility</span>
+      </div>
+      <div class="body">
+        <h3>Finishing the research at ESA LUNA</h3>
+        <p>After the first mission I sent my research to ESA LUNA. The team had me complete the seven remaining experiments of the programme, which turned a three-test study into a full ten-test characterisation.</p>
+        <ul>
+          <li>Followed the written protocols, from sample preparation to measurement and data logging.</li>
+          <li>Worked with a new team and a new facility, using what I had learned in Poland.</li>
+        </ul>
+        <div class="shots tall one">
+          <figure><img src="img/training2.jpg" alt="Flaurent in a white and grey flight suit holding a helmet in front of a lunar map" width="800" height="1067"><figcaption>Analog astronaut training, mission 2</figcaption></figure>
+        </div>
+        <div class="shots land">
+          <figure><img src="img/habitat1.jpg" alt="Laboratory with microscopes, a bulletin board and shelves covered in reflective insulation" width="1000" height="750"><figcaption>Laboratory corner</figcaption></figure>
+          <figure><img src="img/habitat2.jpg" alt="Laboratory bench with a centrifuge, a control box and a bulletin board" width="1000" height="750"><figcaption>Experiment bench</figcaption></figure>
+        </div>
+      </div>
+    </article>
+
+    <!-- Mission 3 -->
+    <article class="msn">
+      <div class="meta">
+        <span class="num">3</span>
+        <span class="when">Dubai</span>
+        <span class="where">EVA training</span>
+      </div>
+      <div class="body">
+        <h3>Extravehicular activity training</h3>
+        <p>My third mission was a training in Dubai focused on extravehicular activity (EVA): working outside a spacecraft in a pressurised suit, where every movement is planned and every procedure matters.</p>
+        <ul>
+          <li>Suit operations and procedures for working in a pressurised EVA suit.</li>
+          <li>Engineering tasks under suit constraints, including welding practice.</li>
+        </ul>
+        <div class="shots tall one">
+          <figure><img src="img/eva.jpg" alt="Flaurent wearing a white EVA spacesuit, giving two thumbs up" width="800" height="1067"><figcaption>EVA suit training in Dubai</figcaption></figure>
+        </div>
+      </div>
+    </article>
+
+    <div class="crew">
+      <div>
+        <h3>What international missions taught me</h3>
+        <div class="tags">
+          <span class="tag">Team spirit</span><span class="tag">Adaptation to new crew mates</span><span class="tag">Cross-cultural communication</span><span class="tag">Stress management</span>
+          <span class="tag">Decision-making under pressure</span><span class="tag">Discipline with procedures</span><span class="tag">Operational safety</span><span class="tag">Time and resource management</span>
+          <span class="tag">Resilience in confined spaces</span><span class="tag">Conflict prevention</span><span class="tag">Scientific method</span><span class="tag">Mission reporting</span><span class="tag">Autonomy</span>
+        </div>
+      </div>
+      <div>
+        <h3>Outreach: talking space with students</h3>
+        <p>At a science fair I explained space engineering to students using drawings and plans. Explaining a design to people who don't know the field is a skill I use in every team.</p>
+        <figure><img src="img/outreach.jpg" alt="Flaurent explaining a space habitat drawing to two students at a science fair table" width="900" height="1078" style="aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 55%;"><figcaption>Science fair stand</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEYOND WORK -->
+<section id="beyond">
+  <div class="wrap">
+    <div class="head">
+      <h2>Beyond work</h2>
+      <p class="sub">What I do outside the lab and the classroom.</p>
+    </div>
+    <div class="beyond">
+      <figure>
+        <img src="img/football.jpg" alt="Match poster from US Ivry Football: man of the match Flaurent EBA, 4 goals and 1 assist" width="800" height="800">
+        <figcaption>Man of the match for US Ivry: 4 goals and 1 assist</figcaption>
+      </figure>
+      <div class="stack">
+        <h3>Football at National 3</h3>
+        <p>I played for US Ivry as a right winger in National 3, the fifth tier of French football. A winger works the touchline: fast decisions, repeated sprints, and a pass or a shot at the end of each run.</p>
+        <div class="tags">
+          <span class="tag">Team play</span><span class="tag">Discipline</span><span class="tag">Resilience</span><span class="tag">Speed of decision</span>
+          <span class="tag">Performing under pressure</span><span class="tag">Physical conditioning</span><span class="tag">Communication on the pitch</span><span class="tag">Accepting feedback</span>
+        </div>
+        <span class="label" style="margin-top: 0.8rem;">Passions</span>
+        <div class="loves">
+          <span>Space</span><span>Astrophysics</span><span>Travel</span><span>Hiking</span>
+          <span>Reading</span><span>Swimming</span><span>Football</span><span>Video games</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMIC WORK -->
+<section id="research" class="alt">
+  <div class="wrap">
+    <div class="head">
+      <h2>Research &amp; reports</h2>
+      <p class="sub">Written work I can share in full on request.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="label">Internship report · 2026</span>
+        <h3>Simulation, optimisation and validation of the MESSIER mission architecture</h3>
+        <p>Orbit, scan strategy, ground segment and environmental balance of a space telescope. 35 pages, with a critical analysis of the method's limits.</p>
+      </article>
+      <article class="card">
+        <span class="label">Analog mission report · 2026</span>
+        <h3>Mechanical characterization of a simulated regolith</h3>
+        <p>Compaction test results, a mineralogical comparison with Apollo and Luna samples, and protocols for further experiments.</p>
+      </article>
+      <article class="card">
+        <span class="label">TIPE · CPGE · July 2023</span>
+        <h3>Geolocation in a crisis and GPS accuracy</h3>
+        <p>The mathematics of GPS positioning: trilateration, linearisation, least-squares estimation, covariance and DOP, and Kalman filtering to fuse measurements over time.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <div class="head">
+      <h2>Education</h2>
+      <p class="sub">From a maths and physics specialisation to a launcher engineering degree, in three steps.</p>
+    </div>
+    <article class="level">
+      <div class="meta">
+        <div class="logo-chip"><img src="img/estaca.png" alt="ESTACA engineering school" width="600" height="247"></div>
+        <span class="when">Engineering degree · up to 5th year</span>
+        <span class="where">ESTACA, Space department<br>Specialisation: launchers</span>
+      </div>
+      <div class="body">
+        <p>I joined ESTACA with a passion for building launchers, propulsion and robotics, and chose the space department and the launcher track.</p>
+        <div class="years">
+          <div class="year"><span class="label">3rd year</span><p>Six-month research internship at CERN on Higgs boson data.</p></div>
+          <div class="year"><span class="label">4th year</span><p>NEL launcher project with ArianeGroup, then the MESSIER mission-architecture internship at Observatoire de Paris. Coursework in space mechanics and launcher aerodynamics.</p></div>
+          <div class="year"><span class="label">5th year</span><p>Reusable upper-stage study for ArianeGroup, and this internship search.</p></div>
+        </div>
+        <figure style="max-width: 36rem;"><img src="img/estaca-workshop.jpg" alt="ESTACA workshop with a student rocket on a bench, a CNES box and equipment cases" width="900" height="1200" style="aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 62%;"><figcaption>My work area at ESTACA: rocket hardware and project workshop</figcaption></figure>
+      </div>
+    </article>
+    <article class="level">
+      <div class="meta">
+        <div class="logo-chip"><img src="img/montaigne.png" alt="Lycée Montaigne, Bordeaux" width="420" height="396"></div>
+        <span class="when">CPGE · MPSI then MP*</span>
+        <span class="where">Lycée Michel Montaigne<br>Bordeaux</span>
+      </div>
+      <div class="body">
+        <p>Two years of intensive preparation in mathematics and physics. My TIPE research project on satellite trilateration came from my interest in space.</p>
+        <div class="tags"><span class="tag">Advanced mathematics</span><span class="tag">Physics</span><span class="tag">Linear algebra</span><span class="tag">Numerical methods</span><span class="tag">Probability &amp; statistics</span><span class="tag">Scientific rigour</span></div>
+      </div>
+    </article>
+    <article class="level">
+      <div class="meta">
+        <div class="logo-chip"><img src="img/stefamille.png" alt="Sainte Famille, Groupe scolaire Amiens" width="500" height="260"></div>
+        <span class="when">Collège and lycée</span>
+        <span class="where">Sainte Famille<br>Amiens</span>
+      </div>
+      <div class="body">
+        <p>Secondary school, finishing with a maths and physics specialisation.</p>
+        <div class="tags"><span class="tag">Mathematics</span><span class="tag">Physics</span><span class="tag">Analytical thinking</span><span class="tag">Problem solving</span><span class="tag">Autonomy</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="zone">
+  <div class="wrap">
+    <p class="label">Contact</p>
+    <p class="big" style="margin-top: 0.8rem;">Let's build <span>launchers</span> together.</p>
+    <p style="margin-top: 1.25rem; max-width: 52ch; color: var(--muted);">I'm available for a 6-month end-of-studies internship starting 1 February 2027. Send me a message and I will reply with my CV and full reports.</p>
+    <div class="contact">
+      <a href="mailto:flaurent-junior.eba-engohang@estaca.eu"><span class="label">Email</span><b>flaurent-junior.eba-engohang@estaca.eu</b></a>
+      <a href="https://www.linkedin.com/in/flaurent-eba-3391492a1/" target="_blank" rel="noopener"><span class="label">LinkedIn</span><b>linkedin.com/in/flaurent-eba-3391492a1</b></a>
+      <a href="tel:+33601246632"><span class="label">Phone</span><b>+33 6 01 24 66 32</b></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Flaurent EBA · ESTACA, Space department</span>
+    <span>Internship search: 1 Feb 2027 → 6 months</span>
+  </div>
+</footer>
+
+</body>
+</html>
